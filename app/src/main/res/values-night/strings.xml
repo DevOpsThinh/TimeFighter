@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tap_me">Tap Me</string>
+    <string name="game_score">Your Score: %1$d</string>
+    <string name="time_left">Time left: %1$d</string>
+</resources>

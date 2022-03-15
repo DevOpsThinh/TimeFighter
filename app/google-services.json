@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "352578080200",
+    "project_id": "android-programming-dda72",
+    "storage_bucket": "android-programming-dda72.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:352578080200:android:a735f45b7a8fca87ddc4fd",
+        "android_client_info": {
+          "package_name": "com.forever.bee.timefighter"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352578080200-qbq1ns6h36lo77r241611ubihfjdgm4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCfqdieQG6ir3x7DtbbZE4mZPuMC9ZMvP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352578080200-qbq1ns6h36lo77r241611ubihfjdgm4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
