@@ -1,4 +1,4 @@
-package com.forever.bee.timefighter
+package com.forever.bee.listtasksmaker
 
 import org.junit.Test
 

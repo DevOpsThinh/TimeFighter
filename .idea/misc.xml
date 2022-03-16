@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/activity_main.xml" value="0.38333333333333336" />
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/main_activity.xml" value="0.37743589743589745" />
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/main_fragment.xml" value="0.37743589743589745" />
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/menu/menu_info.xml" value="0.39791666666666664" />
         <entry key="..\:/native_android/TimeFighter/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/native_android/TimeFighter/app/src/main/res/menu/menu_info.xml" value="0.23055555555555557" />
       </map>

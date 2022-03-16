@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">TimeFighter</string>
+    <string name="app_name">ListTasksMaker</string>
     <string name="tap_me">Nhấn vào tôi</string>
     <string name="your_score">Điểm số của bạn: %1$d</string>
     <string name="game_score">Điểm số của bạn: %1$d</string>
