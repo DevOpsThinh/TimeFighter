@@ -21,8 +21,6 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 
-// import android.view.ViewGroup
-
 @SuppressLint("StaticFieldLeak")
 private lateinit var gameScoreTextView: TextView
 
@@ -48,7 +46,6 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         Log.d(TAG, "onCreate called, Score is: $score")
 
-//        testCash()
         hookingUpViews()
         tapMeEvent()
         if (savedInstanceState != null) {
@@ -83,6 +80,12 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+
+        Log.d(TAG, "onDestroyed called.")
+    }
+
     private fun showInfo() {
         val dialogTitle = getString(R.string.about_title, BuildConfig.VERSION_NAME)
         val dialogMessage = getString(R.string.about_message)
@@ -92,27 +95,6 @@ class MainActivity : AppCompatActivity() {
         builder.setMessage(dialogMessage)
         builder.create().show()
     }
-
-    override fun onDestroy() {
-        super.onDestroy()
-
-        Log.d(TAG, "onDestroyed called.")
-    }
-
-//    private fun testCash() {
-//        val crashButton = Button(this)
-//        crashButton.text = "Test Crash"
-//        crashButton.setOnClickListener {
-//            throw RuntimeException("Test Crash") // Force a crash
-//        }
-//
-//        addContentView(
-//            crashButton, ViewGroup.LayoutParams(
-//                ViewGroup.LayoutParams.MATCH_PARENT,
-//                ViewGroup.LayoutParams.WRAP_CONTENT
-//            )
-//        )
-//    }
 
     private fun tapMeEvent() {
         tapMeButton.setOnClickListener { view ->
