@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TimeFighter</string>
+    <string name="tap_me">Nhấn vào tôi</string>
+    <string name="your_score">Điểm số của bạn: %1$d</string>
+    <string name="game_score">Điểm số của bạn: %1$d</string>
+    <string name="time_left">Thời gian còn lại: %1$d</string>
+    <string name="game_over_message">Hết giờ! Điểm số của bạn: %1$d</string>
+    <string name="about_message">Được tạo bởi Nguyễn Trường Thịnh</string>
+    <string name="menu_about">Về ứng dụng</string>
+</resources>
