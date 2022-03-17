@@ -5,19 +5,17 @@
         android:id="@+id/container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".ui.detail.ListDetailActivity"
+        >
     <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:src="@android:drawable/ic_menu_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:clickable="true"
-            app:srcCompat="@android:drawable/ic_menu_add"
-            android:id="@+id/fabButton"
-            tools:ignore="SpeakableTextPresentCheck"
-            android:contentDescription="@string/fab_button"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_gravity="bottom|end"
-            android:backgroundTint="@color/colorPrimary"
-            android:elevation="6dp"
-    />
+            android:id="@+id/add_task_button"
+            android:layout_gravity="bottom|right"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="10dp"
+            android:backgroundTint="#009688"
+            android:elevation="6dp"/>
 </FrameLayout>

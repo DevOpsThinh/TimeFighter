@@ -1,11 +1,11 @@
 <resources>
-    <string name="app_name" translatable="false">ListTasksMaker</string>
-    <string name="tap_me">Tap Me</string>
-    <string name="your_score">Your Score: %1$d</string>
-    <string name="game_score">Your Score: %1$d</string>
-    <string name="time_left">Time left: %1$d</string>
-    <string name="game_over_message">Time\'s up! Your score was: %1$d</string>
+    <string name="app_name" translatable="false">List Tasks Maker</string>
     <string name="about_title" translatable="false">ListTasksMaker %1$s</string>
     <string name="about_message">Created by Nguyen Truong Thinh</string>
     <string name="menu_about">About</string>
+    <string name="fab_button">+</string>
+    <string name="name_of_list">What is the name of your list?</string>
+    <string name="create_list">Create</string>
+    <string name="task_to_add">What is the task you want to add?</string>
+    <string name="add_task">Add</string>
 </resources>
