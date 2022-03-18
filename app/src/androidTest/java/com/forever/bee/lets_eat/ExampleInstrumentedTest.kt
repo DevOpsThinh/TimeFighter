@@ -1,4 +1,4 @@
-package com.forever.bee.listtasksmaker
+package com.forever.bee.lets_eat
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

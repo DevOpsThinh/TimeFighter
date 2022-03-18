@@ -7,6 +7,38 @@
   "client": [
     {
       "client_info": {
+        "mobilesdk_app_id": "1:352578080200:android:fab139c70c0ef54dddc4fd",
+        "android_client_info": {
+          "package_name": "com.forever.bee.lets_eat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "352578080200-qbq1ns6h36lo77r241611ubihfjdgm4g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDY9-dBFJnOfBMKcC0bGhXZrJi7Q3Yf0cI"
+        },
+        {
+          "current_key": "AIzaSyCfqdieQG6ir3x7DtbbZE4mZPuMC9ZMvP4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "352578080200-qbq1ns6h36lo77r241611ubihfjdgm4g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:352578080200:android:61461b5fc41943beddc4fd",
         "android_client_info": {
           "package_name": "com.forever.bee.listtasksmaker"
@@ -19,6 +51,9 @@
         }
       ],
       "api_key": [
+        {
+          "current_key": "AIzaSyDY9-dBFJnOfBMKcC0bGhXZrJi7Q3Yf0cI"
+        },
         {
           "current_key": "AIzaSyCfqdieQG6ir3x7DtbbZE4mZPuMC9ZMvP4"
         }
@@ -48,6 +83,9 @@
         }
       ],
       "api_key": [
+        {
+          "current_key": "AIzaSyDY9-dBFJnOfBMKcC0bGhXZrJi7Q3Yf0cI"
+        },
         {
           "current_key": "AIzaSyCfqdieQG6ir3x7DtbbZE4mZPuMC9ZMvP4"
         }
