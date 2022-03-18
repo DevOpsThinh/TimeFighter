@@ -50,6 +50,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@android:drawable/ic_menu_add"
             tools:ignore="SpeakableTextPresentCheck,SpeakableTextPresentCheck"
-            android:contentDescription="@string/add_task_des" android:backgroundTint="@color/colorPrimary"/>
+            android:backgroundTint="@color/primaryColor"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

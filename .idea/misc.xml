@@ -3,12 +3,12 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout-xlarge/main_activity.xml" value="0.18" />
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout-xlarge/main_activity.xml" value="2.0" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/activity_main.xml" value="0.38333333333333336" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_detail_activity.xml" value="0.33" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_detail_fragment.xml" value="0.22488038277511962" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_item_view_holder.xml" value="0.33" />
-        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_selection_view_holder.xml" value="0.17037037037037037" />
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_selection_view_holder.xml" value="0.25" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/main_activity.xml" value="0.25" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/main_fragment.xml" value="0.25" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/menu/menu_info.xml" value="0.39791666666666664" />

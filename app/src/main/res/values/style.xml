@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <style name="text_title">
+        <item name="android:fontFamily">@font/montserrat</item>
+        <item name="android:textSize">@dimen/text_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
     <style name="text_display">
         <item name="android:fontFamily">@font/montserrat</item>
         <item name="android:textSize">@dimen/text_display</item>

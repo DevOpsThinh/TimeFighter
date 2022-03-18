@@ -2,7 +2,6 @@
 <resources>
     <string name="about_message">Được tạo bởi Nguyễn Trường Thịnh</string>
     <string name="menu_about">Về ứng dụng</string>
-    <string name="fab_button">+</string>
     <string name="name_of_list">Tên danh sách tác vụ của bạn là gì?</string>
     <string name="create_list">Tạo</string>
     <string name="task_to_add">Bạn cần thêm tác vụ gì?</string>
