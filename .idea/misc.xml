@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout-xlarge/main_activity.xml" value="0.18" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/activity_main.xml" value="0.38333333333333336" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_detail_activity.xml" value="0.33" />
         <entry key="..\:/native_android/ListTasksMaker/app/src/main/res/layout/list_detail_fragment.xml" value="0.22488038277511962" />

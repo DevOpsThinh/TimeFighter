@@ -11,16 +11,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.forever.bee.listtasksmaker.databinding.MainFragmentBinding
 import com.forever.bee.listtasksmaker.models.TaskList
 
-class MainFragment(private val clickListener: MainFragmentInteractionListener) : Fragment(), ListSelectionRecyclerViewAdapter.ListSelectionRecyclerViewClickListener {
+class MainFragment() : Fragment(), ListSelectionRecyclerViewAdapter.ListSelectionRecyclerViewClickListener {
 
     interface MainFragmentInteractionListener {
         fun listItemTapped(list: TaskList)
     }
 
     private lateinit var binding: MainFragmentBinding
+    lateinit var clickListener: MainFragmentInteractionListener
 
     companion object {
-        fun newInstance(clickListener: MainFragmentInteractionListener) = MainFragment(clickListener)
+        fun newInstance() = MainFragment()
     }
 
     private lateinit var viewModel: MainViewModel

@@ -6,10 +6,13 @@ import com.forever.bee.listtasksmaker.models.TaskList
 
 class MainViewModel(private val sharedPreferences: SharedPreferences) : ViewModel() {
     lateinit var onListAdded: (() -> Unit)
+    lateinit var list: TaskList
+    lateinit var onTaskAdded: (() -> Unit)
 
     val lists: MutableList<TaskList> by lazy {
         retrieveLists()
     }
+
 
     private fun retrieveLists(): MutableList<TaskList> {
         val sharedPreferencesContents = sharedPreferences.all
@@ -21,6 +24,11 @@ class MainViewModel(private val sharedPreferences: SharedPreferences) : ViewMode
             tasksList.add(list)
         }
         return tasksList
+    }
+
+    fun addTask(task: String) {
+        list.tasks.add(task)
+        onTaskAdded.invoke()
     }
 
     fun saveTasksList(list: TaskList) {

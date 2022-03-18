@@ -8,18 +8,21 @@ import android.text.InputType
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.lifecycle.ViewModelProvider
+import androidx.preference.PreferenceManager
 import com.forever.bee.listtasksmaker.MainActivity
 import com.forever.bee.listtasksmaker.R
 import com.forever.bee.listtasksmaker.databinding.ListDetailActivityBinding
 import com.forever.bee.listtasksmaker.models.TaskList
 import com.forever.bee.listtasksmaker.ui.detail.ui.detail.ListDetailFragment
 import com.forever.bee.listtasksmaker.ui.detail.ui.detail.ListDetailViewModel
+import com.forever.bee.listtasksmaker.ui.main.MainViewModel
+import com.forever.bee.listtasksmaker.ui.main.MainViewModelFactory
 
 class ListDetailActivity : AppCompatActivity() {
 
     private lateinit var binding: ListDetailActivityBinding
 
-    private lateinit var viewModel: ListDetailViewModel
+    private lateinit var viewModel: MainViewModel
 
 
 
@@ -31,7 +34,7 @@ class ListDetailActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-        viewModel = ViewModelProvider(this)[ListDetailViewModel::class.java]
+        viewModel = ViewModelProvider(this, MainViewModelFactory(PreferenceManager.getDefaultSharedPreferences(this)))[MainViewModel::class.java]
         viewModel.list = intent.getParcelableExtra(MainActivity.INTENT_LIST_KEY)!!
 
         binding.addTaskButton.setOnClickListener {
