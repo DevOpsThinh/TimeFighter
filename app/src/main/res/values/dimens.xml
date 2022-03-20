@@ -4,4 +4,7 @@
     <dimen name="text_display">16dp</dimen>
     <dimen name="two">2dp</dimen>
     <dimen name="four">4dp</dimen>
+    <dimen name="five">5dp</dimen>
+    <dimen name="default_image_width">480px</dimen>
+    <dimen name="default_image_height">270px</dimen>
 </resources>

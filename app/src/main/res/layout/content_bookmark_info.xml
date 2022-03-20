@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+              android:orientation="horizontal"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:padding="@dimen/five">
+    <ImageView
+            android:id="@+id/photo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/five"
+            android:adjustViewBounds="true"
+            android:maxWidth="200dp"
+            android:scaleType="fitStart"
+            android:contentDescription="@string/bookmark_image"
+            android:src="@drawable/default_photo"
+    />
+
+    <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:textColor="@color/secondaryTextColor"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                tools:text="Place Title"/>
+
+        <TextView
+                android:id="@+id/phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="#ff7f7f7f"
+                android:textSize="12sp"
+                tools:text="039-328-0504"/>
+    </LinearLayout>
+
+</LinearLayout>
