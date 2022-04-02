@@ -2,4 +2,11 @@
 <resources>
     <string name="about_message">Được tạo bởi Nguyễn Trường Thịnh</string>
     <string name="menu_about">Về ứng dụng</string>
+    <string name="name">Tên</string>
+    <string name="address">Địa chỉ</string>
+    <string name="phone">Điện thoại</string>
+    <string name="phone_number">Số điện thoại</string>
+    <string name="notes">Ghi chú</string>
+    <string name="enter_notes">Nhập ghi chú</string>
+    <string name="bookmark_image">Ảnh lưu ký</string>
 </resources>

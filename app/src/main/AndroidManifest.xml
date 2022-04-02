@@ -30,7 +30,7 @@
                 android:value="@string/google_maps_key"/>
 
         <activity
-                android:name=".MapsActivity"
+                android:name=".ui.MapsActivity"
                 android:exported="true"
                 android:label="@string/title_activity_maps">
             <intent-filter>
