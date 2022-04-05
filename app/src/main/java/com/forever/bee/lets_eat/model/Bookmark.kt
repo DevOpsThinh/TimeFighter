@@ -1,3 +1,11 @@
+/**
+ * Android Programming With Kotlin
+ *
+ * @author Nguyen Truong Thinh
+ * @since Kotlin 1.6 - JDK 11 (Java 11)
+ *
+ * Contact me: nguyentruongthinhvn2020@gmail.com || +84393280504
+ * */
 package com.forever.bee.lets_eat.model
 
 import android.content.Context
@@ -14,7 +22,8 @@ data class Bookmark(
     var address: String = "",
     var latitude: Double = 0.0,
     var longitude: Double = 0.0,
-    var phone: String = ""
+    var phone: String = "",
+    var notes: String = ""
 ) {
     fun setImage(image: Bitmap, context: Context) {
         id?.let {

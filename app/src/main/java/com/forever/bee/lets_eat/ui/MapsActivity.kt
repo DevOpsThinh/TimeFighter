@@ -1,6 +1,15 @@
+/**
+ * Android Programming With Kotlin
+ *
+ * @author Nguyen Truong Thinh
+ * @since Kotlin 1.6 - JDK 11 (Java 11)
+ *
+ * Contact me: nguyentruongthinhvn2020@gmail.com || +84393280504
+ * */
 package com.forever.bee.lets_eat.ui
 
 import android.Manifest
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
 import androidx.appcompat.app.AppCompatActivity
@@ -8,7 +17,6 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.lifecycle.Transformations
 import com.forever.bee.lets_eat.R
 import com.forever.bee.lets_eat.adapter.BookmarkInfoAdapter
 
@@ -44,6 +52,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
     private val mapsViewModel by viewModels<MapsViewModel>()
 
     companion object {
+        const val EXTRA_BOOKMARK_ID = "com.forever.bee.lets_eat.EXTRA_BOOKMARK_ID"
         private const val REQUEST_LOCATION = 1
         private const val TAG = "MapsActivity"
     }
@@ -125,14 +134,34 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
         return marker
     }
 
+    private fun startBookmarkDetails(bookmarkId: Long) {
+        val intent = Intent(this,BookmarkDetailsActivity::class.java)
+        intent.putExtra(EXTRA_BOOKMARK_ID, bookmarkId)
+        startActivity(intent)
+    }
+    /**
+     * Handles the action when a user taps a place Info Window
+     * */
     private fun handleInfoWindowClick(marker: Marker) {
-        val placeInfo = (marker.tag as PlaceInfo)
-        if (placeInfo.place != null) {
-            GlobalScope.launch {
-                mapsViewModel.addBookmarkFromPlace(placeInfo.place, placeInfo.image)
+        when (marker.tag) {
+            is PlaceInfo -> {
+                val placeInfo = (marker.tag as PlaceInfo)
+                if (placeInfo.place != null && placeInfo.image != null) {
+                    GlobalScope.launch {
+                        mapsViewModel.addBookmarkFromPlace(placeInfo.place, placeInfo.image)
+                    }
+                }
+                marker.remove()
+            }
+            is MapsViewModel.BookmarkMarkerView -> {
+                val bookmarkMarkerView = (marker.tag as MapsViewModel.BookmarkMarkerView)
+                marker.hideInfoWindow()
+                bookmarkMarkerView.id?.let {
+                    startBookmarkDetails(it)
+                }
             }
         }
-        marker.remove()
+
     }
 
     private fun setupMapListeners() {
