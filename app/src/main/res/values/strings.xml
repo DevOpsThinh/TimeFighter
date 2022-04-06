@@ -14,4 +14,10 @@
     <string name="action_save">Save</string>
     <string name="open_drawer_nav">Open Drawer Navigation</string>
     <string name="close_drawer_nav">Close Drawer Navigation</string>
+    <string name="photo_option">Photo Option</string>
+    <string name="cancel">Cancel</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="camera_capture">Camera Capture</string>
+    <string name="gallery_pick">Gallery Pick</string>
 </resources>

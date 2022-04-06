@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <external-path
+            name="restaurant_images"
+            path="Android/data/com.forever.bee.lets_eat/files/Pictures"/>
+</paths>

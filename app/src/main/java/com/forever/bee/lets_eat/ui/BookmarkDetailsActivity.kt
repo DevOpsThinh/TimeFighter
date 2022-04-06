@@ -8,18 +8,35 @@
  * */
 package com.forever.bee.lets_eat.ui
 
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.graphics.Bitmap
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import com.forever.bee.lets_eat.R
 import com.forever.bee.lets_eat.databinding.ActivityBookmarkDetailsBinding
+import com.forever.bee.lets_eat.util.ImageUtils
 import com.forever.bee.lets_eat.viewmodel.BookmarkDetailsViewModel
+import java.io.File
 
-class BookmarkDetailsActivity : AppCompatActivity() {
+class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.PhotoOptionDialogListener {
+
+    companion object {
+        private const val REQUEST_CAPTURE_IMAGE = 1
+        private const val REQUEST_GALLERY_IMAGE = 2
+    }
+
     private lateinit var dataBinding: ActivityBookmarkDetailsBinding
+
+    private var photoFile: File? = null
 
     /**
      * The standard procedure for initializing a view model.
@@ -52,6 +69,36 @@ class BookmarkDetailsActivity : AppCompatActivity() {
             true
         }
         else -> super.onOptionsItemSelected(item)
+    }
+
+    /**
+     * This method is called by Android when an Activity returns a result such as the Camera capture activity.
+     * */
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == android.app.Activity.RESULT_OK) {
+            when (resultCode) {
+                REQUEST_CAPTURE_IMAGE -> {
+                    val photoFile = photoFile ?: return
+                    val uri = FileProvider.getUriForFile(this, "com.forever.bee.lets_eat.fileprovider", photoFile)
+                    revokeUriPermission(uri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+
+                    val image = getImageWithPath(photoFile.absolutePath)
+                    val bitmap = ImageUtils.rotateImageIfRequired(this, image, uri)
+                    updateImage(bitmap)
+                }
+                REQUEST_GALLERY_IMAGE -> if (data != null && data.data != null) {
+                    val imageUri = data.data as Uri
+                    val image = getImageWithAuthority(imageUri)
+
+                    image?.let {
+                        val bitmap = ImageUtils.rotateImageIfRequired(this, it, imageUri)
+                        updateImage(bitmap)
+                    }
+                }
+            }
+        }
     }
 
     /**
@@ -100,6 +147,10 @@ class BookmarkDetailsActivity : AppCompatActivity() {
                 dataBinding.imageViewPlace.setImageBitmap(placeImage)
             }
         }
+
+        dataBinding.imageViewPlace.setOnClickListener {
+            replaceImage()
+        }
     }
 
     /**
@@ -107,5 +158,62 @@ class BookmarkDetailsActivity : AppCompatActivity() {
      * */
     private fun setupToolbar() {
         setSupportActionBar(dataBinding.toolbar)
+    }
+
+    private fun getImageWithAuthority(uri: Uri) = ImageUtils.decodeUriStreamToSize(
+        uri,
+        resources.getDimensionPixelSize(R.dimen.default_image_width),
+        resources.getDimensionPixelSize(R.dimen.default_image_height),
+        this
+    )
+
+    private fun getImageWithPath(filePath: String) = ImageUtils.decodeFileToSize(
+        filePath,
+        resources.getDimensionPixelSize(R.dimen.default_image_width),
+        resources.getDimensionPixelSize(R.dimen.default_image_height)
+    )
+
+    private fun updateImage(image: Bitmap) {
+        bookmarkDetailsView?.let {
+            dataBinding.imageViewPlace.setImageBitmap(image)
+            it.setImage(this, image)
+        }
+    }
+
+    private fun replaceImage() {
+        val newFragment = PhotoOptionDialogFragment.newInstance(this)
+        newFragment?.show(supportFragmentManager, "photoOptionDialog")
+    }
+
+    override fun onCaptureClick() {
+        photoFile = null
+
+        try {
+            photoFile = ImageUtils.createUniqueImageFile(this)
+        } catch (ex: java.io.IOException) {
+            return
+        }
+
+        photoFile?.let { photoFile ->
+            val photoUri = FileProvider.getUriForFile(this, "com.forever.bee.lets_eat.fileprovider", photoFile)
+
+            val captureIntent = Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE)
+
+            val intentActivities =
+                packageManager.queryIntentActivities(captureIntent, PackageManager.MATCH_DEFAULT_ONLY)
+            intentActivities.map { it.activityInfo.packageName }.forEach {
+                grantUriPermission(it, photoUri, Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
+            }
+
+            startActivityForResult(captureIntent, REQUEST_CAPTURE_IMAGE)
+        }
+
+//        Toast.makeText(this, getString(R.string.camera_capture), Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPickClick() {
+        val pickIntent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+        startActivityForResult(pickIntent, REQUEST_GALLERY_IMAGE)
+//        Toast.makeText(this, getString(R.string.gallery_pick), Toast.LENGTH_SHORT).show()
     }
 }

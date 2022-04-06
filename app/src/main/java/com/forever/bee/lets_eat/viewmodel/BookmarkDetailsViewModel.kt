@@ -10,6 +10,7 @@ package com.forever.bee.lets_eat.viewmodel
 
 import android.app.Application
 import android.content.Context
+import android.graphics.Bitmap
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
@@ -22,20 +23,6 @@ import kotlinx.coroutines.launch
 class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(application) {
     private var bookmarkDetailsView: LiveData<BookmarkDetailsView>? = null
     private val bookmarkRepo = BookmarkRepo(getApplication())
-
-    private fun bookmarkViewToBookmark(bookmarkView: BookmarkDetailsView): Bookmark? {
-        val bookmark = bookmarkView.id?.let {
-            bookmarkRepo.getBookmark(it)
-        }
-        if (bookmark != null) {
-            bookmark.id = bookmarkView.id
-            bookmark.name = bookmarkView.name
-            bookmark.phone = bookmarkView.phone
-            bookmark.address = bookmarkView.address
-            bookmark.notes = bookmarkView.notes
-        }
-        return bookmark
-    }
 
     fun updateBookmark(bookmarkView: BookmarkDetailsView) {
         GlobalScope.launch {
@@ -51,6 +38,20 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
             mapBookmarkToBookmarkView(bookmarkId)
         }
         return bookmarkDetailsView
+    }
+
+    private fun bookmarkViewToBookmark(bookmarkView: BookmarkDetailsView): Bookmark? {
+        val bookmark = bookmarkView.id?.let {
+            bookmarkRepo.getBookmark(it)
+        }
+        if (bookmark != null) {
+            bookmark.id = bookmarkView.id
+            bookmark.name = bookmarkView.name
+            bookmark.phone = bookmarkView.phone
+            bookmark.address = bookmarkView.address
+            bookmark.notes = bookmarkView.notes
+        }
+        return bookmark
     }
 
     private fun mapBookmarkToBookmarkView(bookmarkId: Long) {
@@ -77,6 +78,12 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
         var address: String = "",
         var notes: String = ""
     ) {
+        fun setImage(context: Context, image: Bitmap) {
+            id?.let {
+                ImageUtils.saveBitmapToFile(context, image, Bookmark.generateImageFilename(it))
+            }
+        }
+
         fun getImage(context: Context) = id?.let {
             ImageUtils.loadBitmapFromFile(context, Bookmark.generateImageFilename(it))
         }
