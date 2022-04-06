@@ -7,7 +7,7 @@
     </style>
     <style name="text_display">
         <item name="android:fontFamily">@font/montserrat</item>
-        <item name="android:textSize">@dimen/text_display</item>
+        <item name="android:textSize">@dimen/sixteen</item>
         <item name="android:textStyle">bold</item>
     </style>
 </resources>

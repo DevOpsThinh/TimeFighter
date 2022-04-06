@@ -10,4 +10,6 @@
     <string name="enter_notes">Nhập ghi chú</string>
     <string name="bookmark_image">Ảnh lưu ký</string>
     <string name="action_save">Lưu</string>
+    <string name="open_drawer_nav">Mở thanh điều hướng bên trái</string>
+    <string name="close_drawer_nav">Đóng thanh điều hướng bên trái</string>
 </resources>

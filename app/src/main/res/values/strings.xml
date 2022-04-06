@@ -12,4 +12,6 @@
     <string name="enter_notes">Enter notes</string>
     <string name="name">Name</string>
     <string name="action_save">Save</string>
+    <string name="open_drawer_nav">Open Drawer Navigation</string>
+    <string name="close_drawer_nav">Close Drawer Navigation</string>
 </resources>

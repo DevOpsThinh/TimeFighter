@@ -9,7 +9,6 @@
 package com.forever.bee.lets_eat.adapter
 
 import android.app.Activity
-import android.graphics.Bitmap
 import android.view.View
 import com.forever.bee.lets_eat.databinding.ContentBookmarkInfoBinding
 import com.forever.bee.lets_eat.ui.MapsActivity
@@ -34,8 +33,8 @@ class BookmarkInfoAdapter(val context: Activity) : GoogleMap.InfoWindowAdapter {
                 )
             }
 
-            is MapsViewModel.BookmarkMarkerView -> {
-                val bookMarkview = p0.tag as MapsViewModel.BookmarkMarkerView
+            is MapsViewModel.BookmarkView -> {
+                val bookMarkview = p0.tag as MapsViewModel.BookmarkView
 
                 imageView.setImageBitmap(bookMarkview.getImage(context))
             }

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="bookmarkData"
+                  type="com.forever.bee.lets_eat.viewmodel.MapsViewModel.BookmarkView"/>
+    </data>
+    <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/sixteen"
+            android:paddingTop="@dimen/ten"
+            android:paddingRight="@dimen/sixteen"
+            android:paddingBottom="@dimen/ten">
+
+        <ImageView
+                android:id="@+id/bookmarkIcon"
+                android:layout_width="@dimen/thirty"
+                android:layout_height="@dimen/thirty"
+                android:adjustViewBounds="true"
+                android:scaleType="fitStart"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+        <TextView
+                android:id="@+id/bookmarkNameTextView"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginStart="@dimen/sixteen"
+                android:text="@{bookmarkData.name}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/bookmarkIcon"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/name"/>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

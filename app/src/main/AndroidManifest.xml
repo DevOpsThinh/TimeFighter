@@ -36,7 +36,8 @@
         <activity
                 android:name=".ui.MapsActivity"
                 android:exported="true"
-                android:label="@string/title_activity_maps">
+                android:label="@string/title_activity_maps"
+                android:theme="@style/Theme.LetsEat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
