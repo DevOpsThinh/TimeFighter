@@ -18,6 +18,14 @@ class BookmarkRepo(private val context: Context) {
     private val db = PlaceBookDB.getInstance(context)
     private val bookmarkDao: BookmarkDao = db.bookmarkDao()
 
+    fun getBookmark(bookmarkId: Long): Bookmark {
+        return bookmarkDao.loadBookmark(bookmarkId)
+    }
+
+    fun updateBookmark(bookmark: Bookmark) {
+        bookmarkDao.updateBookmark(bookmark)
+    }
+
     fun getLiveBookmark(bookmarkId: Long): LiveData<Bookmark> = bookmarkDao.loadLiveBookmark(bookmarkId)
 
     fun addBookmark(bookmark: Bookmark): Long? {
