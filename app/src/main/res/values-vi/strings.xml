@@ -18,4 +18,5 @@
     <string name="camera">Máy ảnh</string>
     <string name="camera_capture">Chụp ảnh</string>
     <string name="gallery_pick">Chọn ảnh từ thư viện</string>
+    <string name="category">Danh mục</string>
 </resources>

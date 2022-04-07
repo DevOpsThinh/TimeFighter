@@ -14,7 +14,7 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.forever.bee.lets_eat.model.Bookmark
 
-@Database(entities = [Bookmark::class], version = 2)
+@Database(entities = [Bookmark::class], version = 3)
 abstract class PlaceBookDB : RoomDatabase() {
 
     abstract fun bookmarkDao(): BookmarkDao

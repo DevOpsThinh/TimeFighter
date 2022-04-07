@@ -4,9 +4,12 @@
     <dimen name="two">2dp</dimen>
     <dimen name="four">4dp</dimen>
     <dimen name="five">5dp</dimen>
+    <dimen name="eight">8dp</dimen>
     <dimen name="ten">10dp</dimen>
     <dimen name="sixteen">16dp</dimen>
+    <dimen name="twenty_four">24dp</dimen>
     <dimen name="thirty">30dp</dimen>
     <dimen name="default_image_width">480px</dimen>
     <dimen name="default_image_height">270px</dimen>
+
 </resources>

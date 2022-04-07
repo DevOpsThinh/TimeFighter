@@ -199,9 +199,12 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
                 .title(it.name)
                 .snippet(it.phone)
                 .icon(
-                    BitmapDescriptorFactory.defaultMarker(
-                        BitmapDescriptorFactory.HUE_AZURE
-                    )
+//                    BitmapDescriptorFactory.defaultMarker(
+//                        BitmapDescriptorFactory.HUE_AZURE
+//                    )
+                    it.categoryResourceId?.let {
+                        BitmapDescriptorFactory.fromResource(it)
+                    }
                 )
                 .alpha(0.8f)
         )
@@ -326,7 +329,8 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
             Place.Field.PHONE_NUMBER,
             Place.Field.PHOTO_METADATAS,
             Place.Field.ADDRESS,
-            Place.Field.LAT_LNG
+            Place.Field.LAT_LNG,
+            Place.Field.TYPES
         )
 
         val request = FetchPlaceRequest.builder(placeId, placeFields).build()

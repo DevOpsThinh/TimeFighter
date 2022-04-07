@@ -20,4 +20,5 @@
     <string name="camera">Camera</string>
     <string name="camera_capture">Camera Capture</string>
     <string name="gallery_pick">Gallery Pick</string>
+    <string name="category">Category</string>
 </resources>
