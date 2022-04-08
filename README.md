@@ -9,13 +9,13 @@ ___
 - This is a pretty simple but quality app.<br>
 - The app allows users to touch a button for a period of 60 seconds with friendly animations.<br>
 - Currently, the application supports 2 languages: English and Vietnamese.<br>
-<img src="img/time_fighter_h.gif" height="480"/> 
+<img src="img/time_fighter_h.gif" height="480"/> <br>
 #### #2: List Tasks Maker
 - The app allows users to create to-do tasks list.<br>
 - For each task, there will be its own list of tasks.<br>
 - The app supports both tablet and phone interfaces.<br>
 - Currently, the application supports 2 languages: English and Vietnamese.<br>
-<img src="img/list_tasks_marker_h.gif" height="480"/>
+<img src="img/list_tasks_marker_h.gif" height="480"/> <br>
 #### #3: Let's Eat
 - The app allows users to make notes (needed to warn your future self about some heartburn-inducing greasy food from a roadside diner;<br> or the users wanted to keep reminders about the best menu items at your favorite local restaurants) about the restaurant or other places.<br>
 - An app that lets you bookmark and makes notes using a map-based interface.<br>
@@ -25,6 +25,6 @@ ___
 - The users can display details for bookmarked places, and edit or delete the place data, and a corresponding photo.
 - It displays place info, searches for nearby places, and jumps directly to them on the map.
 - Currently, the application supports 2 languages: English and Vietnamese.<br>
-<img src="img/lets_eat_h.gif" height="480"/>
+<img src="img/lets_eat_h.gif" height="480"/> <br>
 ___
 ### License: MIT
