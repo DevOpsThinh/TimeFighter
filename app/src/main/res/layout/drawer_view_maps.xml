@@ -38,7 +38,7 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="bee.forever.com"
+                android:text="@string/bee_forever_com"
                 android:textAppearance="@style/TextAppearance.AppCompat.Small"
                 />
     </LinearLayout>

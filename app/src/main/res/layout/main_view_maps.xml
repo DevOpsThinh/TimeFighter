@@ -40,8 +40,8 @@
             android:id="@+id/fabSearch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|end"
-            android:layout_margin="@dimen/sixteen"
+            android:layout_gravity="bottom|left"
+            android:layout_margin="@dimen/twenty_four"
             android:backgroundTint="@color/secondaryDarkColor"
             app:srcCompat="@drawable/ic_search_white"/>
 </FrameLayout>

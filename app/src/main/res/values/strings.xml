@@ -23,4 +23,5 @@
     <string name="gallery_pick">Gallery Pick</string>
     <string name="category">Category</string>
     <string name="option_ok">OK</string>
+    <string name="bee_forever_com" translatable="false">beemobile.forever.com</string>
 </resources>
