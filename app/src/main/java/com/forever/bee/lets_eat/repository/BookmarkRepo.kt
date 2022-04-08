@@ -31,6 +31,11 @@ class BookmarkRepo(private val context: Context) {
             return bookmarkDao.loadAll()
         }
 
+    fun deleteBookmark(boo: Bookmark) {
+        boo.deleteImage(context)
+        bookmarkDao.deleteBookmark(boo)
+    }
+
     fun getBookmark(bookmarkId: Long): Bookmark {
         return bookmarkDao.loadBookmark(bookmarkId)
     }

@@ -12,6 +12,7 @@ import android.content.Context
 import android.graphics.Bitmap
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import com.forever.bee.lets_eat.util.FileUtils
 import com.forever.bee.lets_eat.util.ImageUtils
 
 @Entity
@@ -26,6 +27,13 @@ data class Bookmark(
     var notes: String = "",
     var category: String = ""
 ) {
+
+    fun deleteImage(context: Context) {
+        id?.let {
+            FileUtils.deleteFile(context, generateImageFilename(it))
+        }
+    }
+
     fun setImage(image: Bitmap, context: Context) {
         id?.let {
             ImageUtils.saveBitmapToFile(context, image, generateImageFilename(it))

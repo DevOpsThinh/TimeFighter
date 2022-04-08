@@ -8,7 +8,7 @@
     <string name="phone_number">Số điện thoại</string>
     <string name="notes">Ghi chú</string>
     <string name="enter_notes">Nhập ghi chú</string>
-    <string name="bookmark_image">Ảnh lưu ký</string>
+    <string name="bookmark_image">Đánh dấu ảnh</string>
     <string name="action_save">Lưu</string>
     <string name="open_drawer_nav">Mở thanh điều hướng bên trái</string>
     <string name="close_drawer_nav">Đóng thanh điều hướng bên trái</string>
@@ -19,4 +19,6 @@
     <string name="camera_capture">Chụp ảnh</string>
     <string name="gallery_pick">Chọn ảnh từ thư viện</string>
     <string name="category">Danh mục</string>
+    <string name="action_delete">Xóa?</string>
+    <string name="option_ok">Đồng ý</string>
 </resources>

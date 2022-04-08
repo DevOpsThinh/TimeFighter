@@ -22,6 +22,7 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.databinding.DataBindingUtil
 import com.forever.bee.lets_eat.R
@@ -29,6 +30,7 @@ import com.forever.bee.lets_eat.databinding.ActivityBookmarkDetailsBinding
 import com.forever.bee.lets_eat.util.ImageUtils
 import com.forever.bee.lets_eat.viewmodel.BookmarkDetailsViewModel
 import java.io.File
+import java.net.URLEncoder
 
 class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.PhotoOptionDialogListener {
 
@@ -52,6 +54,7 @@ class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.P
         dataBinding = DataBindingUtil.setContentView(this, R.layout.activity_bookmark_details)
 
         setupToolbar()
+        setupFabShare()
         getIntentData()
     }
 
@@ -69,6 +72,10 @@ class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.P
     override fun onOptionsItemSelected(item: MenuItem): Boolean = when (item.itemId) {
         R.id.action_save -> {
             saveBookmarkChanges()
+            true
+        }
+        R.id.action_delete -> {
+            deleteBookmark()
             true
         }
         else -> super.onOptionsItemSelected(item)
@@ -102,6 +109,46 @@ class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.P
                 }
             }
         }
+    }
+
+    private fun sharePlace() {
+        val booView = bookmarkDetailsView ?: return
+
+        var mMapUrl = ""
+
+        if (booView.placeId == null) {
+            val location = URLEncoder.encode("${booView.latitude}," + "${booView.longitude}", "utf-8")
+            mMapUrl = "https://www.google.com/maps/dir/?api=1&destination=$location"
+        } else {
+            val name = URLEncoder.encode(booView.name, "utf-8")
+            mMapUrl = "https://www.google.com/maps/dir/?api=1&destination=$name&destination_place_id=" +
+                    "${booView.placeId}"
+        }
+
+        val sendIntent = Intent()
+        sendIntent.action = Intent.ACTION_SEND
+        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out ${booView.name} at:\n$mMapUrl")
+        sendIntent.putExtra(Intent.EXTRA_SUBJECT, "Sharing ${booView.name}")
+        sendIntent.type = "text/plain"
+
+        startActivity(sendIntent)
+    }
+
+    /**
+     * Displays a standard AlertDialog to ask users if they want to delete the bookmark.
+     * */
+    private fun deleteBookmark() {
+        val booView = bookmarkDetailsView ?: return
+
+        AlertDialog.Builder(this)
+            .setMessage(getString(R.string.action_delete))
+            .setPositiveButton(getString(R.string.option_ok)) { _, _ ->
+                bookmarkDetailsViewModel.deleteBookmark(booView)
+                finish()
+            }
+            .setNegativeButton(getString(R.string.cancel), null)
+            .create()
+            .show()
     }
 
     /**
@@ -201,6 +248,12 @@ class BookmarkDetailsActivity : AppCompatActivity(), PhotoOptionDialogFragment.P
      * */
     private fun setupToolbar() {
         setSupportActionBar(dataBinding.toolbar)
+    }
+
+    private fun setupFabShare() {
+        dataBinding.fabShare.setOnClickListener {
+            sharePlace()
+        }
     }
 
     private fun getImageWithAuthority(uri: Uri) = ImageUtils.decodeUriStreamToSize(

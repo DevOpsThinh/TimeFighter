@@ -32,6 +32,17 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
         return bookmarkRepo.getCategoryResourceId(cate)
     }
 
+    fun deleteBookmark(bookmarkDetailsView: BookmarkDetailsView) {
+        GlobalScope.launch {
+            val boo = bookmarkDetailsView.id?.let {
+                bookmarkRepo.getBookmark(it)
+            }
+            boo?.let {
+                bookmarkRepo.deleteBookmark(it)
+            }
+        }
+    }
+
     fun updateBookmark(bookmarkView: BookmarkDetailsView) {
         GlobalScope.launch {
             val bookmark = bookmarkViewToBookmark(bookmarkView)
@@ -66,7 +77,9 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
     private fun mapBookmarkToBookmarkView(bookmarkId: Long) {
         val bookmark = bookmarkRepo.getLiveBookmark(bookmarkId)
         bookmarkDetailsView = Transformations.map(bookmark) { repoBookmark ->
-            bookmarkToBookmarkView(repoBookmark)
+            repoBookmark?.let { repo ->
+                bookmarkToBookmarkView(repo)
+            }
         }
     }
 
@@ -77,7 +90,10 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
             bookmark.phone,
             bookmark.address,
             bookmark.notes,
-            bookmark.category
+            bookmark.category,
+            bookmark.latitude,
+            bookmark.longitude,
+            bookmark.placeId
         )
     }
 
@@ -87,7 +103,10 @@ class BookmarkDetailsViewModel(application: Application) : AndroidViewModel(appl
         var phone: String = "",
         var address: String = "",
         var notes: String = "",
-        var category: String = ""
+        var category: String = "",
+        var latitude: Double = 0.0,
+        var longitude: Double = 0.0,
+        var placeId: String? = null
     ) {
 
         fun setImage(context: Context, image: Bitmap) {
