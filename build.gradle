@@ -1,7 +1,7 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext {
-        kotlin_version = "1.6.10"
+        kotlin_version = "1.6.21"
         buildToolsVersion = "30.0.3"
         compileSdkVersion = 31
         targetSdkVersion = compileSdkVersion
@@ -17,7 +17,7 @@ buildscript {
 
         play_services_version = '19.0.1'
         maps_version = '18.0.2'
-        places_version = '2.5.0'
+        places_version = '2.6.0'
         lifecycle_version = '2.4.1'
         room_version = '2.4.2'
         coroutines_version = '1.6.0'

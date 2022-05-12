@@ -9,7 +9,14 @@ plugins {
 android {
     compileSdk rootProject.ext.compileSdkVersion
 
+    // Conceal API Keys
+    def secretFile = rootProject.file("let_eat.properties")
+    def secretProp = new Properties()
+    secretProp.load(new FileInputStream(secretFile))
+
     defaultConfig {
+        buildConfigField "String", "GOOGLE_API_KEY", secretProp['API_KEY']
+        resValue "string", "google_maps_key", secretProp['API_KEY']
         applicationId "com.forever.bee.lets_eat"
         minSdk rootProject.ext.minSdkVersion
         targetSdk rootProject.ext.targetSdkVersion
