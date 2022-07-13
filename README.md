@@ -1,3 +1,5 @@
+<strong><em>Thanks for your reading, please give me a STAR!<em><strong>
+
 ### "To be an Android Engineer"
 ###### (I'm Nguyen Truong Thinh)
 ___
